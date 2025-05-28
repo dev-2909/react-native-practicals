@@ -36,7 +36,7 @@ export const Home = ({ navigation }) => {
       .then((response) => response.json())
 
       .then(async(json) => {
-        await AsyncStorage.setItem('myArray', JSON.stringify(json.map((item) => ({ ...item, isSelected: true }))));
+        await AsyncStorage.setItem('myArray', JSON.stringify(json.map((item) => ({ ...item, isSelected: item?.isSelected }))));
         setData(json.map((item) => ({ ...item, isSelected: true })));
         
       })
@@ -68,7 +68,7 @@ export const Home = ({ navigation }) => {
       >
         <SearchBar onSearch={handleSearch} />
         <FlatList
-          data={filteredData?.length>0 ? filteredData : data}
+          data={filteredData?.length>0 ? filteredData : data?.filter((item)=>item?.isSelected)}
           keyExtractor={(_, index) => index.toString()}
           ItemSeparatorComponent={() => <View style={{ marginTop: 20 }} />}
           renderItem={({ item }) => {
@@ -134,7 +134,7 @@ export const Home = ({ navigation }) => {
         />
         <Button
           title="Disable Data"
-          onPress={() => navigation.navigate("DisableDataScreen")}
+          onPress={() => navigation.navigate("DisableDataScreen",{data})}
         />
       </View>
     </View>
