@@ -10,3 +10,6 @@ https://jsonplaceholder.typicode.com/photos
 8. Create branch on your name and todays date like raju_14-apr-24 and push on that branch 
 
 Make Sure App Won't Lag And Hang
+
+
+// Images are not getting => corrupted url
