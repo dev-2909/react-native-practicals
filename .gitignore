@@ -5,7 +5,13 @@ yarn-debug.log*
 yarn-error.log*
 package-lock.json
 yarn.lock
-
+# Yarn
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
 # Metro bundler cache
 .expo/
 .expo-shared/
@@ -26,10 +32,10 @@ build/
 local.properties
 
 # Xcode
-ios/Pods/
-ios/Podfile.lock
-ios/DerivedData/
-ios/*.xcworkspace
+**/Pods/
+**/Podfile.lock
+**/DerivedData/
+**/*.xcworkspace
 *.xcuserstate
 *.xcuserdata
 *.xcuserdatad
